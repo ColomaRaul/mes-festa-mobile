@@ -1,8 +1,8 @@
 import { createStackNavigator } from '@react-navigation/stack';
 import { LoginScreen } from '../screens/login/LoginScreen';
-import { ProtectedScreen } from '../screens/login/ProtectedScreen';
 import { useContext } from 'react';
 import { AuthContext } from '../context/AuthContext';
+import { OrganizationNavigator } from './OrganizationRouter';
 
 const Stack = createStackNavigator();
 
@@ -20,7 +20,7 @@ export const Router = () => {
                 (status === 'authenticated')
                 ? (
                     <> 
-                        <Stack.Screen name="ProtectedScreen" component={ProtectedScreen} />
+                        <Stack.Screen name="OrganizationRouter" component={OrganizationNavigator} />
                     </>
                 )
                 : (<Stack.Screen name="LoginScreen" component={LoginScreen} />)

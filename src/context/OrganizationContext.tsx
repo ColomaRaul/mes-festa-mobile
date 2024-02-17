@@ -11,6 +11,7 @@ export const OrganizationContext = createContext({} as OrganizationContextType);
 
 export const OrganizationProvider = ({ children }: any) => {
     const [organization, setOrganization] = useState<Organization | null>(null);
+    
     useEffect(() => {
         loadMainOrganization();
     }, []);
