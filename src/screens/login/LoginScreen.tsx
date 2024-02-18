@@ -45,14 +45,10 @@ export const LoginScreen = ({navigation}: Props) => {
             >
                 <View style={loginStyle.formContainer}>
                     <WhiteLogo/>
-                    <Text style={loginStyle.title}>Login</Text>
-
-                    <Text style={loginStyle.label}>Email:</Text>
                     <TextInput
-                        placeholder="Ingrese su email"
+                        placeholder="Email"
                         placeholderTextColor="rgba(255,255,255,0.4)"
                         keyboardType="email-address"
-                        underlineColorAndroid="white"
                         style={[
                             loginStyle.inputField,
                             (Platform.OS === 'ios') && loginStyle.inputFieldIOS
@@ -64,11 +60,9 @@ export const LoginScreen = ({navigation}: Props) => {
                         value={email}
                         onSubmitEditing={onLogin}
                     />
-                    <Text style={loginStyle.label}>Contraseña:</Text>
                     <TextInput
-                        placeholder="*****"
+                        placeholder="Contrassenya"
                         placeholderTextColor="rgba(255,255,255,0.4)"
-                        underlineColorAndroid="white"
                         secureTextEntry
                         style={[
                             loginStyle.inputField,
@@ -88,7 +82,7 @@ export const LoginScreen = ({navigation}: Props) => {
                             style={loginStyle.button}
                             onPress={onLogin}
                         >
-                            <Text style={loginStyle.title}>Login</Text>
+                            <Text style={loginStyle.title}>Accedir</Text>
                         </TouchableOpacity>
                     </View>
                 </View>

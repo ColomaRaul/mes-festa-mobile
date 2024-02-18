@@ -17,11 +17,15 @@ export const OrganizationProvider = ({ children }: any) => {
     }, []);
 
     const loadMainOrganization = async() => {
-        const resp = await mesFestaApi.get<OrganizationByUserResponse[]>('/organization/by-user');
-        setOrganization({
-            id: resp.data[0].organization_id,
-            name: resp.data[0].organization_name,
-        })
+        try {
+            const resp = await mesFestaApi.get<OrganizationByUserResponse[]>('/organization/by-user');
+            setOrganization({
+                id: resp.data[0].organization_id,
+                name: resp.data[0].organization_name,
+            })
+        } catch (error) {
+            setOrganization(null);
+        }
     };
 
 

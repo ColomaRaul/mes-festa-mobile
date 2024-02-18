@@ -14,12 +14,21 @@ export const loginStyle = StyleSheet.create({
     },
     inputField: {
         color: 'white',
-        fontSize: 20
+        fontSize: 20,
+        marginTop: 25,
+        borderRadius: 100,
+        borderWidth: 2,
+        paddingHorizontal: 20,
+        borderColor: 'white',
+        height: 50,
     },
     inputFieldIOS: {
-        borderBottomColor: 'white',
-        borderBottomWidth: 2,
-        paddingBottom: 5
+        marginTop: 25,
+        borderRadius: 100,
+        borderWidth: 2,
+        paddingHorizontal: 20,
+        borderColor: 'white',
+        height: 50,
     },
     buttonContainer: {
         alignItems: 'center',
