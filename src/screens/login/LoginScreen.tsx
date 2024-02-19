@@ -47,13 +47,13 @@ export const LoginScreen = ({navigation}: Props) => {
                     <WhiteLogo/>
                     <TextInput
                         placeholder="Email"
-                        placeholderTextColor="rgba(255,255,255,0.4)"
+                        placeholderTextColor="rgba(0,0,0,0.4)"
                         keyboardType="email-address"
                         style={[
                             loginStyle.inputField,
                             (Platform.OS === 'ios') && loginStyle.inputFieldIOS
                         ]}
-                        selectionColor="white"
+                        selectionColor="black"
                         autoCapitalize="none"
                         autoCorrect={false}
                         onChangeText={(value) => onChange(value, 'email')}
@@ -62,13 +62,13 @@ export const LoginScreen = ({navigation}: Props) => {
                     />
                     <TextInput
                         placeholder="Contrassenya"
-                        placeholderTextColor="rgba(255,255,255,0.4)"
+                        placeholderTextColor="rgba(0,0,0,0.4)"
                         secureTextEntry
                         style={[
                             loginStyle.inputField,
                             (Platform.OS === 'ios') && loginStyle.inputFieldIOS
                         ]}
-                        selectionColor="white"
+                        selectionColor="black"
                         autoCapitalize="none"
                         autoCorrect={false}
                         onChangeText={(value) => onChange(value, 'password')}

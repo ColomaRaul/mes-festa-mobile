@@ -3,23 +3,23 @@ import { StyleSheet } from "react-native";
 
 export const loginStyle = StyleSheet.create({
     title: {
-        color: 'white',
+        color: 'black',
         fontSize: 30,
         fontWeight: 'bold'
     },
     label: {
         marginTop: 25,
-        color: 'white',
+        color: 'black',
         fontWeight: 'bold'
     },
     inputField: {
-        color: 'white',
+        color: 'black',
         fontSize: 20,
         marginTop: 25,
         borderRadius: 100,
         borderWidth: 2,
         paddingHorizontal: 20,
-        borderColor: 'white',
+        borderColor: 'black',
         height: 50,
     },
     inputFieldIOS: {
@@ -27,7 +27,7 @@ export const loginStyle = StyleSheet.create({
         borderRadius: 100,
         borderWidth: 2,
         paddingHorizontal: 20,
-        borderColor: 'white',
+        borderColor: 'black',
         height: 50,
     },
     buttonContainer: {
@@ -36,7 +36,7 @@ export const loginStyle = StyleSheet.create({
     },
     button: {
         borderWidth: 2,
-        borderColor: 'white',
+        borderColor: 'black',
         paddingHorizontal: 20,
         paddingVertical: 5,
         borderRadius: 100
