@@ -1,20 +1,9 @@
-import React, { useContext, useEffect } from 'react'
-import { Button, FlatList, StyleSheet, Text, View } from 'react-native'
-import { AuthContext } from '../../context/AuthContext';
-import { OrganizationContext } from '../../context/OrganizationContext';
+import React from 'react'
+import { FlatList, View } from 'react-native'
 import { SubMenuCard } from '../../components/SubMenuCard';
-import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import { SubmenuSkeleton } from '../../components/SubMenuHome';
 
 export const HomeScreen = () => {
-    const { logOut, name } = useContext(AuthContext);
-    const { organization, loadMainOrganization } = useContext(OrganizationContext);
-
-    useEffect(() => {
-        loadMainOrganization();
-    }, []);
-
-    const { top } = useSafeAreaInsets();
-
     const subMenu = [
         {
             'id': 1,
@@ -55,13 +44,7 @@ export const HomeScreen = () => {
     ];
 
     return (
-        <View style={{
-            ...styles.container,
-            marginTop: top + 10
-        }}>
-            <Text style={styles.titleNameUser}>{name}</Text>
-            <View style={styles.separatorNameUser} />
-
+        <SubmenuSkeleton>
             <View style={{alignItems: 'center'}}>
                 <FlatList
                     keyExtractor={  (item) => item.id.toString() }
@@ -72,34 +55,6 @@ export const HomeScreen = () => {
                 >
                 </FlatList>
             </View>
-            <Button 
-                title="logout"
-                color="#5856D6"
-                onPress={ logOut }
-            />
-        </View>
+        </SubmenuSkeleton>
     )
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#EDE9E1',
-  },
-  title: {
-    fontSize: 35,
-    fontWeight: 'bold',
-  },
-  titleNameUser: {
-    fontSize: 30,
-    color: 'black',
-    fontWeight: 'bold',
-    marginHorizontal: 20
-  },
-  separatorNameUser: {
-    borderBottomWidth: 5,
-    borderBottomColor: 'black',
-    marginBottom: 15,
-    marginHorizontal: 20
-  }
-});
