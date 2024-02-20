@@ -3,10 +3,12 @@ import { Button, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { AuthContext } from '../context/AuthContext';
 import { OrganizationContext } from '../context/OrganizationContext';
+import { useNavigation } from '@react-navigation/native';
 
 export const SubmenuSkeleton = ({children}: {children: React.ReactNode}) => {
     const { logOut, name } = useContext(AuthContext);
     const { organization, loadMainOrganization } = useContext(OrganizationContext);
+    const navigation = useNavigation();
 
     useEffect(() => {
         loadMainOrganization();
@@ -23,7 +25,14 @@ export const SubmenuSkeleton = ({children}: {children: React.ReactNode}) => {
             <View style={styles.separatorNameUser} />
             { children }
             <View style={styles.footer}>
-                <Text style={styles.title}>{organization?.name}</Text>
+                <View>
+                    <TouchableOpacity
+                        onPress={ () => navigation.navigate('HomeScreen' as never) }
+                    >
+                        <Text style={styles.title}>{organization?.name}</Text>
+                    </TouchableOpacity>
+                </View>
+                
                 
                 <View>
                     <TouchableOpacity

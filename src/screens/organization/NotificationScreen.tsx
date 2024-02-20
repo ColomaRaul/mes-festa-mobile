@@ -2,12 +2,12 @@ import React from 'react'
 import { Text, View } from 'react-native'
 import { SubmenuSkeleton } from '../../components/SubMenuHome'
 
-export const DocumentationScreen = () => {
+export const NotificationScreen = () => {
   return (
     <SubmenuSkeleton>
     <View>
         <Text>
-        DocumentationScreen
+            Notification Screen
         </Text>
     </View>
     </SubmenuSkeleton>

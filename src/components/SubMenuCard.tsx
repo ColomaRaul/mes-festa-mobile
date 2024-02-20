@@ -18,7 +18,7 @@ export const SubMenuCard = ({ title, navigate, icon }: Props ) => {
         <TouchableOpacity
             activeOpacity={ 0.9 }
             onPress={ 
-                () => console.log(navigate)
+                () => navigation.navigate(navigate as never)
             }
         >
             <View style={styles.containerCard}>

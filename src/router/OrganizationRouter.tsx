@@ -5,6 +5,7 @@ import { DocumentationScreen } from '../screens/organization/DocumentationScreen
 import { PersonalPageScreen } from '../screens/organization/PersonalPageScreen';
 import { CalendarScreen } from '../screens/organization/CalendarScreen';
 import { AssistanceScreen } from '../screens/organization/AssistanceScreen';
+import { NotificationScreen } from '../screens/organization/NotificationScreen';
 
 export type OrganizationStackParams = {
     HomeScreen: undefined,
@@ -13,6 +14,7 @@ export type OrganizationStackParams = {
     PersonalPageScreen: { id?: string, name?: string },
     DocumentationScreen: { id?: string, name?: string },
     AssitanceScreen: { id?: string, name?: string },
+    NotificationScreen: { id?: string, name?: string },
 }
 
 const Stack = createStackNavigator<OrganizationStackParams>();
@@ -60,6 +62,11 @@ export const OrganizationNavigator = () => {
                 name="AssitanceScreen"
                 component={ AssistanceScreen}
                 options={{ title: 'Calendari' }}
+            />
+            <Stack.Screen
+                name="NotificationScreen"
+                component={NotificationScreen}
+                options={{ title: 'Notificacions' }}
             />
         </Stack.Navigator>
     )
