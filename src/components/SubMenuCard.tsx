@@ -1,15 +1,17 @@
 import { useNavigation } from '@react-navigation/core';
 import React from 'react'
 import { Dimensions, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import Icon from 'react-native-vector-icons/Ionicons';
 
 const windowWidth = Dimensions.get('window').width
 
 interface Props {
     title: string;
     navigate: string;
+    icon: string;
 }
 
-export const SubMenuCard = ({ title, navigate }: Props ) => {
+export const SubMenuCard = ({ title, navigate, icon }: Props ) => {
     const navigation = useNavigation();
 
     return (
@@ -20,8 +22,12 @@ export const SubMenuCard = ({ title, navigate }: Props ) => {
             }
         >
             <View style={styles.containerCard}>
-                <View>
-                    
+                <View style={styles.menuIcon}>
+                    <Icon
+                        name={ icon }
+                        color="black"
+                        size={100}
+                    />
                 </View>
                 <View>
                     <Text style={styles.menuItemText}>
@@ -37,7 +43,7 @@ const styles = StyleSheet.create({
     containerCard: {
         backgroundColor: '#D0BD9F',
         marginHorizontal: 10,
-        height: 120,
+        height: 160,
         width: 160,
         marginBottom: 25,
         borderRadius: 10,
@@ -55,8 +61,8 @@ const styles = StyleSheet.create({
       textAlign: 'center',
     },
     menuIcon: {
-      flex: 1,
       justifyContent: 'center',
       alignItems: 'center',
+      marginTop: 10
     },
   });
