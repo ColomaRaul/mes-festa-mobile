@@ -4,15 +4,18 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { AuthContext } from '../context/AuthContext';
 import { OrganizationContext } from '../context/OrganizationContext';
 import { useNavigation } from '@react-navigation/native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
-export const SubmenuSkeleton = ({children}: {children: React.ReactNode}) => {
+export const SubmenuSkeleton = ({children, isLoadOrganization = false}: {children: React.ReactNode, isLoadOrganization?: boolean }) => {
     const { logOut, name } = useContext(AuthContext);
     const { organization, loadMainOrganization } = useContext(OrganizationContext);
     const navigation = useNavigation();
 
     useEffect(() => {
-        loadMainOrganization();
-    }, []);
+        if (isLoadOrganization) {
+            loadMainOrganization();
+        }
+    }, [isLoadOrganization]);
 
     const { top } = useSafeAreaInsets();
 
@@ -23,7 +26,10 @@ export const SubmenuSkeleton = ({children}: {children: React.ReactNode}) => {
         }}>
             <Text style={styles.titleNameUser}>{name}</Text>
             <View style={styles.separatorNameUser} />
-            { children }
+            <View style={{flex:1}}>
+                { children }
+            </View>
+            
             <View style={styles.footer}>
                 <View>
                     <TouchableOpacity
@@ -70,8 +76,7 @@ const styles = StyleSheet.create({
       marginHorizontal: 20
     },
     footer: {
-        flex: 1,
-        marginTop: 70,
+        height: 100,
         alignItems: 'center',
         backgroundColor: '#D0BD9F',
         borderTopStartRadius: 30,

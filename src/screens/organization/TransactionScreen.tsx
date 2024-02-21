@@ -1,12 +1,19 @@
-import React from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { Text, View } from 'react-native'
-import { SubmenuSkeleton } from '../../components/SubMenuHome'
+import { SubmenuSkeleton } from '../../components/SubmenuSkeleton'
+import { StackScreenProps } from '@react-navigation/stack';
+import { OrganizationStackParams } from '../../router/OrganizationRouter';
+import { OrganizationContext } from '../../context/OrganizationContext';
 
-export const TransactionScreen = () => {
+interface Props extends StackScreenProps<OrganizationStackParams, 'TransactionsScreen'>{};
+
+export const TransactionScreen = ({ route }: Props) => {
+  const { organization } = useContext(OrganizationContext);
+
   return (
     <SubmenuSkeleton>
       <View>
-        <Text>Transaction Screen</Text>
+        <Text>Compters: {organization?.id}</Text>
       </View>
     </SubmenuSkeleton>
   )

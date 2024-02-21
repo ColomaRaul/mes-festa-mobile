@@ -1,7 +1,7 @@
 import React from 'react'
 import { FlatList, View } from 'react-native'
 import { SubMenuCard } from '../../components/SubMenuCard';
-import { SubmenuSkeleton } from '../../components/SubMenuHome';
+import { SubmenuSkeleton } from '../../components/SubmenuSkeleton';
 
 export const HomeScreen = () => {
     const subMenu = [
@@ -44,14 +44,20 @@ export const HomeScreen = () => {
     ];
 
     return (
-        <SubmenuSkeleton>
+        <SubmenuSkeleton isLoadOrganization={true}>
             <View style={{alignItems: 'center'}}>
                 <FlatList
                     keyExtractor={  (item) => item.id.toString() }
                     showsVerticalScrollIndicator={ false }
                     numColumns={ 2 }
                     data={subMenu}
-                    renderItem={ ({ item }) => ( <SubMenuCard title={ item.title } navigate={item.navigate} icon={item.icon}/> )}
+                    renderItem={ ({ item }) => ( 
+                        <SubMenuCard 
+                            title={ item.title } 
+                            navigate={item.navigate} 
+                            icon={item.icon}
+                        /> 
+                    )}
                 >
                 </FlatList>
             </View>
